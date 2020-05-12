@@ -14,12 +14,10 @@ class User(SqlAlchemyBase):
                            primary_key=True, autoincrement=True)
     surname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    age = sqlalchemy.Column(sqlalchemy.Integer)
-    email = sqlalchemy.Column(sqlalchemy.String,
-                              index=True, unique=True, nullable=True)
+    othestvo = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    male = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     modified_date = sqlalchemy.Column(sqlalchemy.DateTime)
-   # jobs = orm.relation("Jobs", back_populates='user')
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
 
